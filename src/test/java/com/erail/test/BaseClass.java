@@ -29,10 +29,12 @@ public class BaseClass {
 	protected ExtentTest logger;
 	protected WebDriver driver;
 	protected commonActions ca;
-	erailHomepage er;
-
+	erailHomepage er; 
+	
+	
 	// BEFORE SUITE → Setup Extent Report + WebDriver
 	// Runs ONCE before entire test suite
+
 
 	@BeforeSuite
 	public void Base() {
@@ -61,7 +63,6 @@ public class BaseClass {
 		logger = extent.createTest(method.getName());
 		ca.setLogger(logger);
 		er.setLogger(logger);
-
 	}
 
 	// AFTER SUITE → Quit Driver + Flush Report
@@ -90,4 +91,16 @@ public class BaseClass {
 		spark.config().setDocumentTitle("login regression");
 		spark.config().setReportName("Shubham Sawant");
 	}
+
+	public int index() {
+		int inde = 5;
+		return inde;
+	}
+	
+	public void abc ()
+	{
+		System.out.println("asdfdg");
+	}
+	
 }
+	

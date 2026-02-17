@@ -15,12 +15,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.erail.test.BaseClass;
 
 public class commonActions {
 
 	protected WebDriver driver;
 	protected WebDriverWait wait;
 	protected ExtentTest logger;
+	BaseClass Bs;
 	
 	String path = System.getProperty("user.dir") + "/Excelsheet/erailDataSheet.xlsx";
 
@@ -29,8 +31,11 @@ public class commonActions {
 	public commonActions(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		Bs= new BaseClass();
+		
 	}
 
+	
 	// Inject logger dynamically for each test
 
 	public void setLogger(ExtentTest logger) {
@@ -103,22 +108,22 @@ public class commonActions {
 	 * Selects dropdown value by index and returns the selected text.
 	 */
 
-	public String selectValueByIndex(By locator, int index, String msg) {
+	public String selectValueByIndex(By locator, String msg) {
 		List<WebElement> options = driver.findElements(locator);
 
 		try {
 			   wait.until(d -> d.findElements(locator).size() > 0);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-			String value = options.get(index).getText();
-			options.get(index).click();
+			String value = options.get(Bs.index()).getText();
+			options.get(Bs.index()).click();
 			logger.pass(msg + value);
 			return value;
 			
 		} catch (Exception e) {
-			if (index >= options.size()) {
-			    logger.fail("Index " + index + " Available options: " + options.size());
+			if (Bs.index() >= options.size()) {
+			    logger.fail("Index " + Bs.index() + " Available options: " + options.size());
 			}
-			throw new RuntimeException("Failed to select dropdown index " + index + ": " + e);
+			throw new RuntimeException("Failed to select dropdown index " + Bs.index() + ": " + e);
 		}
 	}
 
