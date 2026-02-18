@@ -9,7 +9,7 @@ public class erailHomepageTest extends BaseClass {
 	@Test
 	public void TC_01()  {
 
-		er.enterStationName("DEL");
+		er.enterStationName("DEL" , 3);
 	}
 
 	// Test Case 2: Read values from Excel file
@@ -48,7 +48,7 @@ public class erailHomepageTest extends BaseClass {
 	
 	@Test
 	public void TC_06() {
-		er.SelectStationTo(2, 1);
+		er.SelectStationTo(2,1, 5);
 		}
 	
 	// Test Case 7: Select a date 30 days from today using datepicker

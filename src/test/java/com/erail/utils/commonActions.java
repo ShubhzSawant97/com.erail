@@ -108,22 +108,21 @@ public class commonActions {
 	 * Selects dropdown value by index and returns the selected text.
 	 */
 
-	public String selectValueByIndex(By locator, String msg) {
+	public void selectValueByIndex(By locator, String msg, int index) {
 		List<WebElement> options = driver.findElements(locator);
 
 		try {
 			   wait.until(d -> d.findElements(locator).size() > 0);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-			String value = options.get(Bs.index()).getText();
-			options.get(Bs.index()).click();
+			String value = options.get(index).getText();
+			options.get(index).click();
 			logger.pass(msg + value);
-			return value;
 			
 		} catch (Exception e) {
-			if (Bs.index() >= options.size()) {
-			    logger.fail("Index " + Bs.index() + " Available options: " + options.size());
+			if (index >= options.size()) {
+			    logger.fail("Index " + index + " Available options: " + options.size());
 			}
-			throw new RuntimeException("Failed to select dropdown index " + Bs.index() + ": " + e);
+			throw new RuntimeException("Failed to select dropdown index " + index+ ": " + e);
 		}
 	}
 

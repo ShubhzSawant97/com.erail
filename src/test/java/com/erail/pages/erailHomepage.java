@@ -65,9 +65,9 @@ public class erailHomepage {
 	 * @param index       - dropdown option index
 	 * @return selected value from dropdown
 	 */
-	public String enterStationName(String StationName){
+	public void enterStationName(String StationName, int index){
 		ca.enterValue(FromInputFild, StationName, "Entered value: " + StationName + " Successfully");
-		return ca.selectValueByIndex(valueSelectionFromDropdown,  "Value Selected ");
+		ca.selectValueByIndex(valueSelectionFromDropdown,  "Value Selected " ,index);
 	}
 
 	/**
@@ -105,11 +105,11 @@ public class erailHomepage {
 	 * @param index       - dropdown option index
 	 * @return selected value from dropdown
 	*/
-	public String SelectStationTo(int cellnum, int rownum) {
+	public void SelectStationTo(int cellnum, int rownum , int index) {
 		List <String> val = ca.getDropdownValues(ToStationSelection, "Values read from Dropdown:");
 		System.out.println(val);
 		ca.writeTExcel(val, cellnum, rownum);
-		return ca.selectValueByIndex(ToStationSelection, "value selected");
+		ca.selectValueByIndex(ToStationSelection, "value selected", index);
 	}
 	
 

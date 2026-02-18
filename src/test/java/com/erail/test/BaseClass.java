@@ -92,15 +92,6 @@ public class BaseClass {
 		spark.config().setReportName("Shubham Sawant");
 	}
 
-	public int index() {
-		int inde = 5;
-		return inde;
-	}
-	
-	public void abc ()
-	{
-		System.out.println("asdfdg");
-	}
-	
+
 }
 	
