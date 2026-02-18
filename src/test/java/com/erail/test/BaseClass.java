@@ -70,7 +70,7 @@ public class BaseClass {
 
 	@AfterSuite
 	public void quit() {
-		driver.quit();
+		driver.quit(); 
 		extent.flush();
 	}
 
@@ -81,8 +81,7 @@ public class BaseClass {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
 		String fileName = formatter.format(date);
-		String reportPath = System.getProperty("user.dir") + "/src/test/java/com/erail/reports/ExtentReport" + fileName
-				+ ".html";
+		String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport_" + fileName+ ".html";
 		spark = new ExtentSparkReporter(reportPath);
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
