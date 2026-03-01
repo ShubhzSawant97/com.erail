@@ -32,7 +32,6 @@ public class commonActions {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		Bs= new BaseClass();
-		
 	}
 
 	
@@ -228,5 +227,24 @@ public class commonActions {
 				throw new RuntimeException("Datepicker selection failed: " + e);
 			}
 		}
-
+		
+		public List<String> handleDropdown(WebElement elm, int index, String msg) {
+			try {
+				Select sel = new Select(elm);
+				wait.until(ExpectedConditions.visibilityOf(elm)); 
+				sel.selectByIndex(index);
+				List<WebElement> values = sel.getOptions();
+				List<String> dropdownvalues =new ArrayList<>();
+				for (WebElement options: values) {
+					dropdownvalues.add(options.getText().trim());
+				}
+				logger.pass(msg+dropdownvalues);
+				System.out.println(dropdownvalues);
+				return dropdownvalues;
+			}catch(Exception e) {
+				logger.fail(msg);
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+		
 }

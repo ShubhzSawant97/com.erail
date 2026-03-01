@@ -68,7 +68,7 @@ public class BaseClass {
 	// AFTER SUITE → Quit Driver + Flush Report
 	// Runs ONCE after entire test suite
 
-	@AfterSuite
+	@AfterSuite	
 	public void quit() {
 		driver.quit(); 
 		extent.flush();

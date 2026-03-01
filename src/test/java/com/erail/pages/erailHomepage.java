@@ -56,6 +56,9 @@ public class erailHomepage {
 	private WebElement TextStationTo;
 	
 	private By ToStationSelection = By.xpath("//div[@class='autocomplete' and not(contains(@style,'display: none'))]//div[@title]");
+	
+	@FindBy (xpath="//select[@id = 'cmbQuota']")
+	private WebElement quota;
 
 
 	/**
@@ -121,6 +124,8 @@ public class erailHomepage {
 	public void SelectCalendar(int daysFromToday) {
 		ca.clickElement(Calender, "clicked on elm");
 		ca.selectDateWithDatePicker( daysFromToday, "Date selected through datepicker");
-
+	}
+	public void selectQuota(int index) {
+		ca.handleDropdown(quota, index, "Value selected: ");
 	}
 }
