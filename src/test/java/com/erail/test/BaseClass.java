@@ -41,7 +41,6 @@ public class BaseClass {
 		createExtentReport();
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-
 	}
 
 	// BEFORE CLASS → Initialize Page Objects & Utils

@@ -30,7 +30,6 @@ public class erailHomepage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		ca = new commonActions(driver);
-		
 	}
 
 	// Inject Extent logger into both PageObject & commonActions
