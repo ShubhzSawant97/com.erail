@@ -41,7 +41,6 @@ public class BaseClass {
 		createExtentReport();
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-
 	}
 
 	// BEFORE CLASS → Initialize Page Objects & Utils
@@ -68,7 +67,7 @@ public class BaseClass {
 	// AFTER SUITE → Quit Driver + Flush Report
 	// Runs ONCE after entire test suite
 
-	@AfterSuite
+	@AfterSuite	
 	public void quit() {
 		driver.quit(); 
 		extent.flush();

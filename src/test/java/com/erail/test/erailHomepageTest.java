@@ -62,5 +62,11 @@ public class erailHomepageTest extends BaseClass {
 	public void TC_08() {
 		er.SelectCalendar(30);
 	}
+	
+	// Test Case 9: Select a value from seat quota
+	@Test
+	public void TC_09() {
+		er.selectQuota(4);
+	}
 
 }
