@@ -56,9 +56,8 @@ public class erailHomepage {
 	
 	private By ToStationSelection = By.xpath("//div[@class='autocomplete' and not(contains(@style,'display: none'))]//div[@title]");
 	
-	@FindBy (xpath="//select[@id = 'cmbQuota']")
-	private WebElement quota;
-	
+	@FindBy (xpath="//select[@id = 'cmbQuota']") private WebElement quota;
+
 	@FindBy (xpath="//select[@id = 'selectClassFilter']") WebElement SelectClass;
 	
 	@FindBy (xpath="//input[@id='buttonFromTo']") WebElement GetTrains;
