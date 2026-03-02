@@ -68,5 +68,15 @@ public class erailHomepageTest extends BaseClass {
 	public void TC_09() {
 		er.selectQuota(4);
 	}
+	
+	@Test
+	public void TC_10() {
+		er.selectClass(5);
+	}
 
-}
+	@Test
+	public void TC_11() {
+		er.searchtrains();
+	}
+
+}	

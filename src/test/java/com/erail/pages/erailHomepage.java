@@ -58,8 +58,12 @@ public class erailHomepage {
 	
 	@FindBy (xpath="//select[@id = 'cmbQuota']")
 	private WebElement quota;
-
-
+	
+	@FindBy (xpath="//select[@id = 'selectClassFilter']") WebElement SelectClass;
+	
+	@FindBy (xpath="//input[@id='buttonFromTo']") WebElement GetTrains;
+	
+	
 	/**
 	 * Enters station name into "From" textbox and selects a value by index.
 	 * 
@@ -126,5 +130,13 @@ public class erailHomepage {
 	}
 	public void selectQuota(int index) {
 		ca.handleDropdown(quota, index, "Value selected: ");
+	}
+	
+	public void selectClass(int index) {
+		ca.handleDropdown(SelectClass, index, "Class selected:");
+	}
+	
+	public void searchtrains() {
+		ca.clickElement(GetTrains, "Searched for the train");
 	}
 }
